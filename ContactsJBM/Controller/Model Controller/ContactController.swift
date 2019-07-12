@@ -71,13 +71,16 @@ class ContactController {
     }
     //Update contacts
     func updateContact(contact: Contact, name: String, phoneNumber: Int, email: String) {
+        //assigning the proprty fields based on the contact we are updating
         contact.name = name
         contact.phoneNumber = phoneNumber
         contact.email = email
-        
+        //creating a record to save
         let recordToSave = CKRecord(contact: contact)
+        //calling the update function from the cloudKitController
         CloudKitController.shared.update(record: recordToSave, database: privateDB) { (success) in
             if success {
+                //printing this upon successful load
                 print("updates Contact succesfully")
             }
         }

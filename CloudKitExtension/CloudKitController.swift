@@ -9,9 +9,12 @@
 import Foundation
 import CloudKit
 
+//creating a CloudKitController to organize code and reduce the ammount of clutter in the Controller
 class CloudKitController {
+    //shared instance
     static let shared = CloudKitController()
     
+    //update record CloudKit function
     func update(record: CKRecord, database: CKDatabase, completion: @escaping (Bool) -> Void) {
         let operation = CKModifyRecordsOperation()
         operation.recordsToSave = [record]

@@ -10,6 +10,7 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
 
+    //landing pad
     var contact: Contact? {
         didSet {
             loadViewIfNeeded()
@@ -25,8 +26,7 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    
-    
+    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,7 +40,6 @@ class ContactDetailViewController: UIViewController {
             ContactController.shared.updateContact(contact: contact, name: name, phoneNumber: phoneNumber, email: email)
         } else {
             ContactController.shared.createContact(name: name, phoneNumber: phoneNumber, email: email) { (_) in
-                
             }
         }
         self.navigationController?.popViewController(animated: true)
