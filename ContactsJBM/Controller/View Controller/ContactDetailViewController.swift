@@ -10,6 +10,15 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
 
+    var contact: Contact? {
+        didSet {
+            loadViewIfNeeded()
+            guard let contact = contact else {return}
+            nameTextField.text = contact.name
+            phoneNumberTextField.text = "\(contact.phoneNumber)"
+            emailTextField.text = contact.email
+        }
+    }
     
     //Text Field Outlets
     @IBOutlet weak var nameTextField: UITextField!
@@ -20,14 +29,20 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
 
     //Button Action
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
-        
+        guard let name = nameTextField.text, !name.isEmpty,
+            let phoneNumber = Int(phoneNumberTextField.text ?? ""),
+            let email = emailTextField.text else {return}
+        if let contact = contact {
+            ContactController.shared.updateContact(contact: contact, name: name, phoneNumber: phoneNumber, email: email)
+        } else {
+            ContactController.shared.createContact(name: name, phoneNumber: phoneNumber, email: email) { (_) in
+                
+            }
+        }
+        self.navigationController?.popViewController(animated: true)
     }
-    
 }

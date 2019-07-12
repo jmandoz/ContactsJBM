@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="q9n-Jv-whB" style="IBUITableViewCellStyleDefault" id="dCP-5B-MiM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" textLabel="q9n-Jv-whB" style="IBUITableViewCellStyleDefault" id="dCP-5B-MiM">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dCP-5B-MiM" id="VV9-59-qu8">
@@ -36,7 +36,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="GWt-s1-cA5" kind="show" id="CLc-px-rBC"/>
+                                    <segue destination="GWt-s1-cA5" kind="show" identifier="toEditDetailVC" id="CLc-px-rBC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -169,6 +169,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4xm-M1-Qm4"/>
+        <segue reference="CLc-px-rBC"/>
     </inferredMetricsTieBreakers>
 </document>
