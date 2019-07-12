@@ -9,7 +9,7 @@
 import UIKit
 
 class ContactDetailViewController: UIViewController {
-
+    
     //landing pad
     var contact: Contact? {
         didSet {
@@ -30,7 +30,7 @@ class ContactDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     //Button Action
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
@@ -38,10 +38,15 @@ class ContactDetailViewController: UIViewController {
             let email = emailTextField.text else {return}
         if let contact = contact {
             ContactController.shared.updateContact(contact: contact, name: name, phoneNumber: phoneNumber, email: email)
+            self.navigationController?.popViewController(animated: true)
         } else {
-            ContactController.shared.createContact(name: name, phoneNumber: phoneNumber, email: email) { (_) in
+            ContactController.shared.createContact(name: name, phoneNumber: phoneNumber, email: email) { (contact) in
+                if contact != nil {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
         }
-        self.navigationController?.popViewController(animated: true)
     }
 }

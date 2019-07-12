@@ -12,20 +12,20 @@ class ContactListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ContactController.shared.fetchAllContacts { (success) in
-            //Fetches the Contacts upon load
-            self.updateViews()
-        }
+       updateViews(completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateViews()
+        self.tableView.reloadData()
     }
     //function for updating the views to the main thread
-    func updateViews() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    func updateViews(completion: ((Bool) -> Void)?) {
+        ContactController.shared.fetchAllContacts { (contacts) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                completion?(contacts != nil)
+            }
         }
     }
 
