@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				A4F7527922D8DA9400486BE2 /* ContactsJBM */,
-				A4860D0122D8ECD600E0EF10 /* CloudKitExtension */,
 				A4F7527822D8DA9400486BE2 /* Products */,
 				A4F7528D22D8DAB700486BE2 /* Frameworks */,
 			);
@@ -115,6 +114,7 @@
 				A4860CF522D8DDCE00E0EF10 /* Controller */,
 				A4F7528C22D8DAB300486BE2 /* ContactsJBM.entitlements */,
 				A4F7529022D8DD8F00486BE2 /* Resources */,
+				A4860D0122D8ECD600E0EF10 /* CloudKitExtension */,
 			);
 			path = ContactsJBM;
 			sourceTree = "<group>";
