@@ -13,7 +13,7 @@
         <!--Contacts-->
         <scene sceneID="L9X-nN-VVv">
             <objects>
-                <tableViewController id="nkQ-gS-xjx" sceneMemberID="viewController">
+                <tableViewController id="nkQ-gS-xjx" customClass="ContactListTableViewController" customModule="ContactsJBM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DhE-QZ-Tpp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
         <!--Details-->
         <scene sceneID="lNi-Uz-piV">
             <objects>
-                <viewController title="Details" id="GWt-s1-cA5" sceneMemberID="viewController">
+                <viewController title="Details" id="GWt-s1-cA5" customClass="ContactDetailViewController" customModule="ContactsJBM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bZB-ra-gdK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,6 +119,9 @@
                                         <rect key="frame" x="0.0" y="299.5" width="414" height="231.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="GWt-s1-cA5" eventType="touchUpInside" id="tDV-7e-lgt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -138,6 +141,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z1v-oD-bFK"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="YcJ-Lx-GfL" id="42L-cW-sI4"/>
+                        <outlet property="nameTextField" destination="Bp2-4Z-8wV" id="kg6-Cj-Uvk"/>
+                        <outlet property="phoneNumberTextField" destination="RWe-5f-n9A" id="jJ2-of-9GU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUj-bu-wGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
